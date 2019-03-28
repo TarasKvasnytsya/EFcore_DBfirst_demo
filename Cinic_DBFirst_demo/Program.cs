@@ -14,13 +14,13 @@ namespace Cinic_DBFirst_demo
                 operation.ShowOperations();
                 string numberOfOperation = Console.ReadLine();
                 bool success = Int32.TryParse(numberOfOperation, out int number);
-                if (!success && numberOfOperation[0]!='q')
+                if (!success && numberOfOperation[0]!='x')
                 {
                     Console.WriteLine("You enter an invalid number of operation, please enter correct number!");
                     Console.ReadKey();
                     continue;
                 }
-                if (numberOfOperation[0]=='q') 
+                if (numberOfOperation[0]=='x') 
                 {
                     break;
                 }
@@ -80,6 +80,16 @@ namespace Cinic_DBFirst_demo
                     case 11:
                         {
                             operation.GetDoctorWithPatients();
+                            break;
+                        }
+                    case 12:
+                        {
+                            operation.UpdateDoctor();
+                            break;
+                        }
+                    case 13:
+                        {
+                            operation.UpdateDoctor();
                             break;
                         }
                     default:

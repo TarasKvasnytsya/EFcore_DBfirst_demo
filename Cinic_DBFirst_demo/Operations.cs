@@ -207,6 +207,48 @@ namespace Cinic_DBFirst_demo
                 }
             }
         }
+        public void UpdateDoctor()
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter id doctor: ");
+            string numberId = Console.ReadLine().Trim();
+            bool success = Int32.TryParse(numberId, out int id);
+            if (!success)
+            {
+                Console.WriteLine("You enter invalid id");
+                return;
+            }
+
+            var doctorItem = unitOfWork.Doctors.Get(id);
+            Console.WriteLine("Enter new Specialization: ");
+            string specialization = Console.ReadLine().Trim();
+            doctorItem.Specialization = specialization;
+            unitOfWork.Save();
+
+            Console.WriteLine("Operation completed");
+        }
+        public void UpdatePatient()
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter id patient: ");
+            string numberId = Console.ReadLine().Trim();
+            bool success = Int32.TryParse(numberId, out int id);
+            if (!success)
+            {
+                Console.WriteLine("You enter invalid id");
+                return;
+            }
+
+            var patientItem = unitOfWork.Patients.Get(id);
+
+            Console.WriteLine("Enter new diagnosis: ");
+            string diagnos = Console.ReadLine().Trim();
+            patientItem.Diagnosis = diagnos;
+            unitOfWork.Save();
+
+            Console.WriteLine("Operation completed");
+
+        }
 
         public void ShowOperations()
         {
@@ -223,7 +265,9 @@ namespace Cinic_DBFirst_demo
             Console.WriteLine("9. Get Doctors For Specialization");
             Console.WriteLine("10. Get Older Patient");
             Console.WriteLine("11. Get Doctor with Patient");
-            Console.WriteLine("Enter 'q' to quit the program");
+            Console.WriteLine("12. Update Doctor");
+            Console.WriteLine("13. Update Patient");
+            Console.WriteLine("Enter 'x' to quit the program");
             Console.WriteLine("Please enter number of operation: ");
 
             
