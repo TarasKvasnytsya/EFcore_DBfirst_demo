@@ -31,7 +31,7 @@ namespace Cinic_DBFirst_demo
             };
 
             unitOfWork.Doctors.Add(doctorItem);
-            unitOfWork.Save();            
+            _ = unitOfWork.Save();            
 
             Console.WriteLine("Operation completed");
         }
@@ -158,6 +158,36 @@ namespace Cinic_DBFirst_demo
                 Console.WriteLine(item);
             }
         }
+        public void GetOlderPatient()
+        {
+            return;
+        }
+        public void GetDoctorsForSpecialization()
+        {
+            return;
+        }
+        public void GetDoctorWithPatients()
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter id doctor: ");
+            string numberId = Console.ReadLine().Trim();
+            bool success = Int32.TryParse(numberId, out int id);
+            if (!success)
+            {
+                Console.WriteLine("You enter invalid id");
+                return;
+            }
+            var doctorsItems = unitOfWork.Doctors.GetDoctorWithPatients(id);
+            foreach (var item in doctorsItems)
+            {
+                Console.WriteLine(item);
+                foreach (Patient instance in item.Patient)
+                {
+                    Console.WriteLine(instance);
+                }
+            }
+        }
+
 
         public void ShowOperations()
         {
@@ -171,6 +201,9 @@ namespace Cinic_DBFirst_demo
             Console.WriteLine("6. Get Patient");
             Console.WriteLine("7. Show all Doctor");
             Console.WriteLine("8. Show all Patient");
+            Console.WriteLine("9. Get Doctors For Specialization");
+            Console.WriteLine("10. Get Older Patient");
+            Console.WriteLine("11. Get Doctor with Patient");
             Console.WriteLine("Enter 'q' to quit the program");
             Console.WriteLine("Please enter number of operation: ");
         }

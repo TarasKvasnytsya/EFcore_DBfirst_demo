@@ -5,5 +5,6 @@ namespace Cinic_DBFirst_demo.DAL
     public interface IDoctorRepository : IRepository<Doctor>
     {
         IEnumerable<Doctor> GetDoctorsForSpecialization(string specialization);
+        IEnumerable<Doctor> GetDoctorWithPatients(int id);
     }
 }

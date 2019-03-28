@@ -61,6 +61,7 @@ namespace Cinic_DBFirst_demo
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.Patient)
                     .HasForeignKey(d => d.DoctorId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK__Patient__Doctor___25869641");
             });
         }

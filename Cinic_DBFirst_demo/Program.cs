@@ -67,6 +67,21 @@ namespace Cinic_DBFirst_demo
                             operation.GetAllPatients();
                             break;
                         }
+                    case 9:
+                        {
+                            operation.GetDoctorsForSpecialization();
+                            break;
+                        }
+                    case 10:
+                        {
+                            operation.GetOlderPatient();
+                            break;
+                        }
+                    case 11:
+                        {
+                            operation.GetDoctorWithPatients();
+                            break;
+                        }
                     default:
                         {
                             Console.WriteLine("You enter an invalid number of operation, please enter correct number!");

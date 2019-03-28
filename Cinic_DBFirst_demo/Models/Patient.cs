@@ -15,7 +15,7 @@ namespace Cinic_DBFirst_demo
 
         public override string ToString()
         {
-            return $"Name - {Name}, Age - {Age}, Diagnosis - {Diagnosis}, Doctor_Id - {DoctorId}";
+            return $"Name: {Name}, Age: {Age}, Diagnosis: {Diagnosis}, Doctor_Id: {DoctorId}";
         }
     }
 }
