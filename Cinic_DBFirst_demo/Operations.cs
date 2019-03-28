@@ -11,7 +11,7 @@ namespace Cinic_DBFirst_demo
         {
             this.unitOfWork = unitOfWork;
         }
-
+        
         public void CreateNewDoctor()
         {
             Console.Clear();
@@ -35,7 +35,6 @@ namespace Cinic_DBFirst_demo
 
             Console.WriteLine("Operation completed");
         }
-
         public void CreateNewPatient()
         {
             Console.Clear();
@@ -69,7 +68,6 @@ namespace Cinic_DBFirst_demo
 
             Console.WriteLine("Operation completed");
         }
-
         public void RemoveDoctor()
         {
             Console.Clear();
@@ -160,11 +158,33 @@ namespace Cinic_DBFirst_demo
         }
         public void GetOlderPatient()
         {
-            return;
+            Console.Clear();
+            Console.WriteLine("Enter age: ");
+            string numberAge = Console.ReadLine().Trim();
+            bool success = Int32.TryParse(numberAge, out int age);
+            if (!success)
+            {
+                Console.WriteLine("You enter invalid age");
+                return;
+            }
+            var patientItems = unitOfWork.Patients.GetOlderPatient(age);
+            foreach (var item in patientItems)
+            {
+                Console.WriteLine(item);
+            }
+
         }
         public void GetDoctorsForSpecialization()
         {
-            return;
+            Console.Clear();
+            Console.WriteLine("Enter specialization: ");
+            string specialization = Console.ReadLine().Trim();
+
+            var doctorsItems = unitOfWork.Doctors.GetDoctorsForSpecialization(specialization);
+            foreach (var item in doctorsItems)
+            {
+                Console.WriteLine(item);
+            }
         }
         public void GetDoctorWithPatients()
         {
@@ -188,7 +208,6 @@ namespace Cinic_DBFirst_demo
             }
         }
 
-
         public void ShowOperations()
         {
             Console.Clear();
@@ -206,6 +225,8 @@ namespace Cinic_DBFirst_demo
             Console.WriteLine("11. Get Doctor with Patient");
             Console.WriteLine("Enter 'q' to quit the program");
             Console.WriteLine("Please enter number of operation: ");
+
+            
         }
 
     }
