@@ -12,5 +12,10 @@ namespace Cinic_DBFirst_demo
         public int? DoctorId { get; set; }
 
         public virtual Doctor Doctor { get; set; }
+
+        public override string ToString()
+        {
+            return $"Name - {Name}, Age - {Age}, Diagnosis - {Diagnosis}, Doctor_Id - {DoctorId}";
+        }
     }
 }

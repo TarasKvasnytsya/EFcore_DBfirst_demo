@@ -21,9 +21,9 @@ namespace Cinic_DBFirst_demo.DAL
             return Context.Set<TEntity>().Find(id);
         }
 
-        async public Task<IEnumerable<TEntity>> GetAll()
+        public IEnumerable<TEntity> GetAll()
         {
-            return await Context.Set<TEntity>().ToListAsync<TEntity>();
+            return Context.Set<TEntity>();
         }
 
         public EntityEntry<TEntity> Add(TEntity entity)

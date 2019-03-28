@@ -9,7 +9,7 @@ namespace Cinic_DBFirst_demo.DAL
     public interface IRepository<TEntity> where TEntity : class
     {
         TEntity Get(int id);
-        Task<IEnumerable<TEntity>> GetAll();
+        IEnumerable<TEntity> GetAll();
 
         EntityEntry<TEntity> Add(TEntity entity);
         EntityEntry<TEntity> Remove(TEntity entity);

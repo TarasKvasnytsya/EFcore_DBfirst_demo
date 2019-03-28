@@ -16,5 +16,10 @@ namespace Cinic_DBFirst_demo
         public string Specialization { get; set; }
 
         public virtual ICollection<Patient> Patient { get; set; }
+
+        public override string ToString()
+        {
+            return $"Name - {Name}, Surname - {Surname}, Specialization - {Specialization}";
+        }
     }
 }
