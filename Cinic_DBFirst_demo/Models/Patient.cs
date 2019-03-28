@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cinic_DBFirst_demo.Models
+namespace Cinic_DBFirst_demo
 {
     public partial class Patient
     {

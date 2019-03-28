@@ -1,9 +1,4 @@
-﻿using Cinic_DBFirst_demo.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cinic_DBFirst_demo.DAL
+﻿namespace Cinic_DBFirst_demo.DAL
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -13,10 +8,13 @@ namespace Cinic_DBFirst_demo.DAL
         {
             _context = context;
             Doctors = new DoctorRepository(_context);
-
+            Patients = new PatientRepository(_context);
+            
         }
 
         public IDoctorRepository Doctors { get; private set; }
+        public IPatientRepository Patients { get; private set; }
+
 
         public int Save()
         {

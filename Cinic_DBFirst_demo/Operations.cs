@@ -1,5 +1,4 @@
 ﻿using Cinic_DBFirst_demo.DAL;
-using Cinic_DBFirst_demo.Models;
 using System;
 
 namespace Cinic_DBFirst_demo
@@ -32,7 +31,7 @@ namespace Cinic_DBFirst_demo
             };
 
             unitOfWork.Doctors.Add(doctorItem);
-            unitOfWork.Save();
+            unitOfWork.Save();            
 
             Console.WriteLine("Operation completed");
         }

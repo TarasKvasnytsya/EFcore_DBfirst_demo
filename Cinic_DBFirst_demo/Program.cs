@@ -1,5 +1,4 @@
 ﻿using Cinic_DBFirst_demo.DAL;
-using Cinic_DBFirst_demo.Models;
 using System;
 
 namespace Cinic_DBFirst_demo

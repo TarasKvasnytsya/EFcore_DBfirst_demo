@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Cinic_DBFirst_demo.Models
+namespace Cinic_DBFirst_demo
 {
     public partial class ClinicContext : DbContext
     {
@@ -22,6 +22,7 @@ namespace Cinic_DBFirst_demo.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=Clinic;Trusted_Connection=True;");
             }
         }
@@ -32,8 +33,6 @@ namespace Cinic_DBFirst_demo.Models
 
             modelBuilder.Entity<Doctor>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name)
                     .HasMaxLength(30)
                     .IsUnicode(false);
@@ -49,17 +48,13 @@ namespace Cinic_DBFirst_demo.Models
 
             modelBuilder.Entity<Patient>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Diagnosis)
-                    .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
                 entity.Property(e => e.DoctorId).HasColumnName("Doctor_Id");
 
                 entity.Property(e => e.Name)
-                    .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
